@@ -8,6 +8,9 @@ red = '\033[31m'
 r = '\033[0m'  # reset
 text = []
 seconds = .1
+c=0
+keytyper = Controller()
+triggerKey=Key.f4
 #to do list:
 # option 1 spams the whole text file
 # option 2 spames only when holding down the trigger button
@@ -28,7 +31,7 @@ def selectFile():
         print("Please select a file")
         root = Tk().withdraw(
         )  # withdraw prevents the tiny window from popping up
-        location = filedialog.askopenfilename(initialdir="/",title="Select file",filetypes=(("text files","*.txt"),("all files", "*.*")))
+        location = filedialog.askopenfilename(initialdir="/~",title="Select file",filetypes=(("text files","*.txt"),("all files", "*.*")))
         if location == "":
             print(red + "[!] No file was selected" + r)
             return False
@@ -41,16 +44,15 @@ def selectFile():
         raise
 
 def on_press0(key):
-    if key == Key.alt_l:
-        print("start signal pressed: left Alt")
+    if key == triggerKey:
+        print("start signal pressed: ")
     #print('{0} pressed'.format(key))
 
 def on_release0(key):
     #print('{0} released'.format(key))
 
     # Starting
-    if key == Key.alt_l:
-        keytyper = Controller()
+    if key == triggerKey:
         for i in text:
             keytyper.type(i)
             # Enter button
@@ -64,24 +66,36 @@ def on_release0(key):
         return False
 
 def on_press1(key):
-    if key == Key.alt_l:
-        print("start signal pressed: left Alt")
-
+    global c
+    if key == triggerKey:
+        keytyper.type(text[c])
+        # Enter button
+        keytyper.press(Key.enter)
+        keytyper.release(Key.enter)
+        #counter
+        if c < len(text)-1:
+            c+=1
+        else:
+            return False
+        
 def on_release1(key):
-    #print('{0} released'.format(key))
-
-    # Starting
-    if key == Key.alt_l:
-        print("pause the spammer")
     # Stop listener
     if key == Key.esc:
         return False
 
 def startSpam0():
+    print(
+        r +
+        "---{0}Starting{1}----------------------------------\n{0}[!] PRESS 'f4' button to Start, Press 'esc' to quit{1}\n"
+        .format(cyan, r))
     with Listener(on_press=on_press0, on_release=on_release0) as listener:
         listener.join()
 
 def startSpam1():
+    print(
+        r +
+        "---{0}Starting{1}----------------------------------\n{0}[!] HOLD 'f4' button to Start, Press 'esc' to quit{1}\n"
+        .format(cyan, r))
     with Listener(on_press=on_press1, on_release=on_release1) as listener:
         listener.join()
 
@@ -105,10 +119,7 @@ def main():
         startSpam0()
     if userInput=="1":
         startSpam1()
-    print(
-        r +
-        "---{0}Starting{1}----------------------------------\n{0}[!] Press left 'alt' button to Start, Press 'esc' to quit{1}\n\n"
-        .format(cyan, r))
+    
     
 
 
