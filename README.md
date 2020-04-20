@@ -33,7 +33,20 @@ Python Library (Pip3):
 * tkinter
 * pynput
 
-------------------------------------------------------------------------
+### To make sure everything is installed
+------------------------------------
+
+Linux(Debian/Ubuntu based) and Mac users:<br>
+1. Open up terminal
+2. ```sudo apt-get install python3-tk```
+3. ```pip3 install pynput```
+
+Windows users:<br>
+1. When installing python, make sure Tk is selected in the installer
+2. open cmd
+3. ```pip3 install pynput```
+
+
 ## Instructions ✔️
 
 1. Run the program in terminal: ```python3 spammerPrank.py```
