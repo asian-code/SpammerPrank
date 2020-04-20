@@ -96,9 +96,10 @@ def main():
     global text,times
 
     Menu()
-    userInput=input("[*] Select option: ")
+    userInput=input("[*] Select option: "+cyan)
     userInput=userInput.replace(" ","")
-
+    print(r)# resets color
+    
     if userInput=="2":
         text=input(r+"[*] Enter Text: "+cyan)
         times=int(input(r+"[*] # of times: "+cyan))
