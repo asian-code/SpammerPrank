@@ -11,15 +11,11 @@ This is a prank app that sends virtual keystrokes to your computer which can be 
     It will spam all of the words in file (You can **NOT** stop the spam early)
     
     
-*  [2] Send a text/phrase a set number of times:<br>
+*  [2] Send a text/phrase a number of times:<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    example : "Wake up" "Wake up" "Wake up" "Wake up" "Wake up"
-
-<br><br>
+    example : "Wake up" "Wake up"
 
 
-Example of usage:
-* Sending Song lyrics prank
 ## Disclaimer
 * **I am not responsible for how you use this program.**<br>
 * Please be kind and **NOT** use this to hurt others.
