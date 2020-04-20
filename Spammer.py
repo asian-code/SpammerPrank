@@ -9,10 +9,10 @@ r = '\033[0m'  # reset
 green = '\033[32m'
 text = []
 seconds = .1
-c=0
+c=0 # option 0 counter
 keytyper = Controller()
 triggerKey=Key.f4
-times=0
+times=0 # option 2 
 
 def textCleanUp(text):
     # remove all \n
@@ -38,24 +38,6 @@ def Menu():
     print("\n---{}Other Options{}-------------------------".format(cyan,r))
     print(" [{0}2{1}] Spam a word/phrase a number of times\n".format(cyan,r))
     print("-----------------------------------------\n")
-    
-
-def selectFile():
-    try:
-        print("Please select a file")
-        root = Tk().withdraw(
-        )  # withdraw prevents the tiny window from popping up
-        location = filedialog.askopenfilename(initialdir="/~",title="Select file",filetypes=(("text files","*.txt"),("all files", "*.*")))
-        if location == "":
-            print(red + "[!] No file was selected" + r)
-            return False
-        print("LOCATION: " + location)
-        return location
-
-    except:
-        print(red + "[!] Error trying to get file, please try again" + r)
-        print(red + "---Error message--------------------" + r)
-        raise
 
 def on_press0(key):
     # Starting
@@ -124,7 +106,23 @@ def main():
         StartSpam(on_press2,on_release,"[!] PRESS 'f4' button to Start, Press 'esc' to quit")
         return 
 
-    location = selectFile()
+    # prompt user to select a Folder
+    try:
+        print("Please select a file")
+        root = Tk().withdraw(
+        )  # withdraw prevents the tiny window from popping up
+        location = filedialog.askopenfilename(initialdir="/~",title="Select file",filetypes=(("text files","*.txt"),("all files", "*.*")))
+        if location == "":
+            print(red + "[!] No file was selected" + r)
+            return False
+        print("LOCATION: " + location)
+        return location
+
+    except:
+        print(red + "[!] Error trying to get file, please try again" + r)
+        print(red + "---Error message--------------------" + r)
+        raise 
+
     if location is False:
         return
     # read text data from file
