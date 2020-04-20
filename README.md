@@ -16,11 +16,11 @@ This is a prank app that sends virtual keystrokes to your computer which can be 
     example : "Wake up" "Wake up"
 
 
-## Disclaimer
+## Disclaimer ❗️ 
 * **I am not responsible for how you use this program.**<br>
 * Please be kind and **NOT** use this to hurt others.
 
-## Requirements &nbsp; :unlock:
+## Requirements &nbsp; :lock:
 
 Operating System:
 * Mac OS 
@@ -34,3 +34,9 @@ Python Library (Pip3):
 * pynput
 
 ------------------------------------------------------------------------
+## Instructions ✔️
+
+1. Run the program in terminal: ```python3 spammerPrank.py```
+2. Select option: 0 , 1 , 2
+3. click a message box
+4. press the **f4** button on keyboard
