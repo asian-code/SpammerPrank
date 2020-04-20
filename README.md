@@ -39,4 +39,5 @@ Python Library (Pip3):
 1. Run the program in terminal: ```python3 spammerPrank.py```
 2. Select option: 0 , 1 , 2
 3. click a message box
-4. press the **f4** button on keyboard
+4. press the **f4** button on keyboard<br>
+😂 Watch as your chat fill up with messages 😂
