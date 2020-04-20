@@ -6,6 +6,7 @@ import io
 cyan = '\033[36m'
 red = '\033[31m'
 r = '\033[0m'  # reset
+green = '\033[32m'
 text = []
 seconds = .1
 c=0
@@ -18,6 +19,18 @@ def textCleanUp(text):
     text = text.replace("\n", " ")
     text = text.split(" ")
     return text
+
+def logo():
+    print('''{}  ____                                            
+ / ___| _ __   __ _ _ __ ___  _ __ ___   ___ _ __ 
+ \___ \| '_ \ / _` | '_ ` _ \| '_ ` _ \ / _ | '__|
+  ___) | |_) | (_| | | | | | | | | | | |  __| |   
+ |____/| .__/ \__,_|_| |_| |_|_|_|_| |_|\___|_|   
+       |_|{}_ __  _ __ __ _ _ __ | | __             
+         | '_ \| '__/ _` | '_ \| |/ /             
+         | |_) | | | (_| | | | |   <              
+         | .__/|_|  \__,_|_| |_|_|\_\             
+         |_| {}Made by Asian-code{}\n\n'''.format(red,cyan,green,r))
 
 def Menu():
     print("---{0}File Options{1}--------------------------".format(cyan,r))
@@ -94,12 +107,12 @@ def StartSpam(onPress,onRelease,message):
 
 def main():
     global text,times
-
+    logo()
     Menu()
     userInput=input("[*] Select option: "+cyan)
     userInput=userInput.replace(" ","")
     print(r)# resets color
-    
+
     if userInput=="2":
         text=input(r+"[*] Enter Text: "+cyan)
         times=int(input(r+"[*] # of times: "+cyan))
