@@ -34,7 +34,7 @@ def logo():
 
 def Menu():
     print("---{0}File Options{1}--------------------------".format(cyan,r))
-    print(" [{0}0{1}] Spam each word in a file. (Uncontrolled)\n [{0}1{1}] Spam when holding down 'f4' key. (Controlled)".format(cyan,r))
+    print(" [{0}0{1}] Spam when holding down 'f4' key. (Controlled)\n [{0}1{1}] Spam each word in a file. (Uncontrolled)".format(cyan,r))
     print("\n---{}Other Options{}-------------------------".format(cyan,r))
     print(" [{0}2{1}] Spam a word/phrase a number of times\n".format(cyan,r))
     print("-----------------------------------------\n")
@@ -113,6 +113,11 @@ def main():
     userInput=userInput.replace(" ","")
     print(r)# resets color
 
+    # checks if input is valid
+    valid=["0","1","2"]
+    if userInput not in valid:
+        userInput="0"# default 
+
     if userInput=="2":
         text=input(r+"[*] Enter Text: "+cyan)
         times=int(input(r+"[*] # of times: "+cyan))
@@ -128,9 +133,9 @@ def main():
     file.close()
 
     text = textCleanUp(text)    
-    if userInput=="0":
-        StartSpam(on_press0,on_release,"[!] PRESS 'f4' button to Start, Press 'esc' to quit")
     if userInput=="1":
+        StartSpam(on_press0,on_release,"[!] PRESS 'f4' button to Start, Press 'esc' to quit")
+    if userInput=="0":
         StartSpam(on_press1,on_release,"[!] HOLD 'f4' button to Start, Press 'esc' to quit")
     
 main()
